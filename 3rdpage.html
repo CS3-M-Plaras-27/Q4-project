@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="website">
+	<meta name="Plaras" content="Q4 Project">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo {
+            width: 75px;
+            height: 73px;
+            float: left;
+            margin-top: 18px;
+            margin-left: 40px;
+        }
+
+        h1 {
+            float: left;
+            margin-top: 18px;
+            font-size: 16.5px;
+            color: white;
+            padding-right: 250px;
+        }
+
+        nav {
+            width: 100%;
+            height: 110px;
+            background: rgba(11, 110, 79, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 3;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 5px;
+            margin-right: 15px;
+            background-color: rgba(11, 110, 79, 0.8);
+            border-radius: 4px;
+        }
+
+        .navbar a:hover {
+            background-color: #1E5266;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0b6e4f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 4;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 5px 5px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1E5266;
+        }
+
+        .intro-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro {
+            text-align: center;
+            width: 500px;
+        }
+
+        .intro h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .intro p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 5px 5px;
+            background-color: rgba(11, 110, 79, 0.8);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 18px;
+            margin-right: 19px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: #1E5266;
+        }
+
+        .navbar .signup-btn {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 5px;
+            background-color: rgba(11, 110, 79, 0.8);
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .signup-btn:hover {
+            background-color: #1E5266;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            z-index: 3;
+        }
+
+        #inputContainer {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #popupText, #popupSources {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <img src="weblogo.png" alt="" class="logo">
+        <h1>Evolutionary Ecology<br>Exploring the interplay between organisms and their environments over time</h1>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Explore<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="2ndpage.html">Interactions</a>
+                    <a href="3rdpage.html">Facts</a>
+                    <a href="5thpage.html">Background</a>
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Contacts <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                     <a href="#">mplaras@crc.pshs.edu.ph</a>
+                </div>
+            </div>
+            <a href="4thpage.html" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+</header>
+
+<video autoplay muted loop class="video-background">
+    <source src="https://videocdn.cdnpk.net/joy/content/video/free/video0461/large_preview/_import_60e0167b4c3a96.14254367.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div id="inputContainer">
+    <label for="numberInput">Enter a number between 1 and 10:</label>
+    <input type="number" id="numberInput" min="1" max="10" onblur="handleBlur()" onselect="handleSelect()" onfocus="handleFocus()">
+    <button onclick="showContent()">Show Content</button>
+</div>
+
+<div id="popup">
+    <div id="popupText"></div>
+    <div id="popupSources"></div>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<div class="intro-container">
+    <div class="intro">
+        <h2>Facts About Evolutionary Ecology</h2>
+        <p>Evolutionary ecology is the study of how ecological processes such as competition, predation, and mutualism influence 
+        the evolution of species. Enter a number(1-10) to know interesting facts!</p>
+        <ul>
+            <li>Mutualism, where two species benefit from each other, can drive evolutionary changes. For example, flowering plants and their pollinators often evolve together.</li>
+            <li>Predation pressure can lead to the evolution of defensive traits in prey species. Some butterflies, for example, have evolved to mimic toxic species to avoid being eaten.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function showContent() {
+        var inputNumber = document.getElementById("numberInput").value;
+        var textContainer = document.getElementById("popupText");
+        var sourcesContainer = document.getElementById("popupSources");
+
+        if (inputNumber >= 1 && inputNumber <= 10) {
+            var textContent = "";
+            var sources = [];
+
+            switch (inputNumber) {
+                case '1':
+                    textContent = "Did you know that from monogamy to polygamy, the evolution of reproductive strategies is an intriguing subject in evolutionary ecology. By studying different mating systems and reproductive behaviors, scientists gain insights into the factors influencing the development from these strategies and their impact on reproductive success.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '2':
+                    textContent = "Did you know that human activities, such as habitat destruction, pollution, and climate change, have profound effects on evolutionary processes. Evolutionary ecology helps us understand the consequences of these human-induced disruptions and provides insights into potential conservation strategies to mitigate the negative impacts.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '3':
+                    textContent = "Did you know that by combining empirical observations, theoretical models, and experimental studies, evolutionary ecology provides insights into the potential outcomes of environmental changes on species adaptations and interactions. This understanding is essential for making informed decisions regarding conservation and ecosystem management";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '4':
+                    textContent = "Here’s a takeaway! Evolutionary ecology studies how animals and plants change to survive in their environment. It’s like nature’s own survival game, with winners passing on their traits to the next generation.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '5':
+                    textContent = "Did you know that the concept of an evolutionary arms race describes the constant push and pull between species as they develop adaptations to outcompete one another. This dynamic interaction often leads to the co-evolution of predator and prey, as each evolves strategies to gain the upper hand in the ongoing battle for survival";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '6':
+                    textContent = "Here's a takeaway! Evolutionary ecology helps us understand how human actions affect the natural world. It’s like a crystal ball that shows us the possible future of life on Earth based on what we do now.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '7':
+                    textContent = "Did you know that behavioral adaptations play a critical role in an organism’s ability to survive and reproduce. Evolutionary ecology delves into how behaviors such as mating rituals, foraging strategies, and predator avoidance have evolved over time, shaping the ecological dynamics within populations and communities.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '8':
+                    textContent = "Are you aware that by studying how species have diversified and adapted to different environments, evolutionary ecology provides insights into the origins of the vast array of life forms we see on Earth today. This knowledge is vital for conservation efforts and managing ecosystems in the face of environmental changes.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '9':
+                    textContent = "Are you aware that climate change is driving rapid shifts in the distributions and behaviors of species. Some animals and plants are evolving earlier breeding seasons or migrating to higher altitudes or latitudes to cope with changing temperatures and habitats. This ongoing adaptation showcases the immediate impact of environmental changes on evolutionary trajectories.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>FACTS.NET</a>");
+                    break;
+                case '10':
+                    textContent = "Did you know that invasive species pose a significant threat to native biodiversity and ecosystem functioning. Evolutionary ecology studies how invasive species interact with native species, how their evolutionary history contributes to their success, and how ecosystems can be managed to reduce their detrimental effects.";
+                    sources.push("<a href='https://facts.net/science/biology/16-mind-blowing-facts-about-evolutionary-ecology/'>Nature</a>");
+                    break;
+                default:
+                    break;
+            }
+
+            textContainer.innerHTML = textContent;
+            sourcesContainer.innerHTML = "Sources: " + sources.join(', ');
+            document.getElementById("popup").style.display = "block";
+        } else {
+            alert("Please enter a number between 1 and 10.");
+        }
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+
+    function handleBlur() {
+        console.log('Input field lost focus');
+    }
+
+    function handleSelect() {
+        console.log('Text selected in input field');
+    }
+
+    function handleFocus() {
+        console.log('Input field focused');
+    }
+</script>
+
+</body>
+</html>

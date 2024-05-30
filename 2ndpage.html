@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="website">
+	<meta name="Plaras" content="Q4 Project">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            width: 75px;
+            height: 73px;
+            float: left;
+            margin-top: 18px;
+            margin-left: 40px;
+        }
+
+        h1 {
+            float: left;
+            margin-top: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16.5px;
+            color: white; 
+            padding-right: 250px;
+        }
+
+        nav {
+            width: 100%;
+            height: 110px;
+            background: rgba(11, 110, 79, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 3;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 5px;
+            margin-right: 15px;
+            background-color: rgba(11, 110, 79, 0.8); 
+            border-radius: 4px; 
+        }
+
+        .navbar a:hover {
+            background-color: #1E5266; 
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #0b6e4f;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 4; 
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 5px 5px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #0b6e4f;
+        }
+
+        .intro-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2; 
+        }
+
+        .intro {
+            text-align: center;
+            width: 500px;
+        }
+
+        .intro h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: black; 
+        }
+
+        .intro p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        button {
+            font-size: 20px; 
+            padding: 5px 5px;
+            background-color: rgba(11, 110, 79, 0.8); 
+            color: white;
+            border: none;
+            border-radius: 4px; 
+            margin-left: 18px;
+            margin-right: 19px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; 
+            display: inline-block; 
+        }
+
+        button:hover {
+            background-color: #1E5266; 
+        }
+
+        .navbar .signup-btn {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            padding: 5px 5px;
+            background-color: rgba(11, 110, 79, 0.8);  
+            border: none;
+            border-radius: 4px; 
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .signup-btn:hover {
+            background-color: #1E5266; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .article {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .image-container {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text-container {
+            flex: 2;
+        }
+
+        .text-container h2 {
+            font-size: 24px;
+        }
+
+        .text-container p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #0b6e4f;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #1E5266;
+        }
+        
+        .images-row {
+            display: flex;
+			justify-content: center; 
+			gap: 20px;
+        }
+		
+	    .image-hover-container {
+		position: relative;
+		display: flex;
+		width: 48%; 
+		overflow: hidden; 
+		}
+
+        .image-hover-container img {
+		width: 100%;
+		height: auto;
+		transition: transform 0.3s ease;
+		border-radius: 30px;
+        }
+
+        .image-hover-container:hover img {
+		transform: scale(1.1); 
+        }
+		
+		
+		.hover-text {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.7); 
+		color: white;
+		text-align: center;
+		padding: 10px 0;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+       .image-hover-container:hover .hover-text {
+	   visibility: visible;
+	   opacity: 1;
+       }
+
+       .subtitle-container {
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   margin-top: 20px;
+	   margin-bottom: 20px;
+	   }
+	   
+	   .subtitle-line {
+	   flex: 1;
+	   height: 1px;
+	   background-color: black;
+	   margin: 0 10px;
+	   }
+
+      .subtitle {
+	  font-size: 18px;
+	  color: black;
+	  font-weight: bold;
+	  text-transform: uppercase;
+	  }
+
+      .subtitle-container {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+	  }
+
+     .subtitle-line {
+	 flex: 1;
+	 height: 1px;
+	 background-color: black;
+	 margin: 0 10px;
+	 }
+
+     .subtitle {
+	 font-size: 18px;
+	 color: black;
+	 font-weight: bold;
+	 text-transform: uppercase;
+	 }
+        
+    </style>
+	
+</head>
+<header>
+    <nav>
+        <img src="weblogo.png" alt="" class="logo">
+        <h1>Evolutionary Ecology<br>Exploring the interplay between organisms and their environments over time</h1>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Explore<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="2ndpage.html">Interactions</a>
+                    <a href="3rdpage.html">Facts</a>
+                    <a href="5thpage">Background</a>
+                </div>
+            </div> 
+            <div class="dropdown">
+                <button class="dropbtn">Contacts <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                     <a href="#">mplaras@crc.pshs.edu.ph</a>
+                </div>
+            </div>
+            <a href="4thpage.html" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+</header>
+<body>
+    <div class="container">
+        <article class="article">
+            <div class="image-container">
+                <img src="interactions.jpg" alt="Image 1">
+            </div>
+            <div class="text-container">
+                <h2>Evolutionary Ecology: Understanding the Dynamics</h2>
+                <p>Evolutionary ecology delves into the intricate relationship between organisms and their environments.It is a fascinating field that combines aspects of evolutionary biology and ecology 
+				to understand how biological traits are shaped by ecological processes and how these traits, in turn, influence ecological dynamics. It approaches the study of ecology in a way that 
+				explicitly considers the evolutionary histories of species and the interactions between them. </p>
+                <p><strong>Image Source:</strong> <a href="https://en.wikipedia.org/wiki/Evolutionary_ecology">WIKIPEDIA</a></p>
+				
+				
+	<div class="subtitle-container">
+    <div class="subtitle-line"></div>
+    <div class="subtitle">Key Interactions in Evolutionary Ecology</div>
+    <div class="subtitle-line"></div>
+</div>
+				
+            </div>
+        </article>
+        <article class="article">
+            <div class="image-container">
+                <img src="interactions1.jpg" alt="Image 1">
+            </div>
+            <div class="text-container">
+                <h2>Predation and herbivory</h2>
+                <ul>
+                    <li>Predation and herbivory are interactions where predators consume prey and herbivores consume plant parts, respectively. These relationships are 
+					pivotal in shaping evolutionary trajectories as prey and plant species develop sophisticated adaptations to avoid being consumed. For example, some plants 
+					produce toxic chemicals to deter herbivores, while prey animals might evolve camouflaging abilities or develop faster speeds to escape predators. These 
+					pressures can lead to an evolutionary arms race where both predator (or herbivore) and prey (or plant) continuously evolve new strategies to outcompete the 
+					other.</li>
+                <p><strong>Image Source:</strong> <a href="https://www.nature.com/scitable/knowledge/library/predation-herbivory-and-parasitism-13261134/">Scitable by natureEDUCATION</a></p>
+            </div>
+        </article>
+		
+	       <article class="article">
+            <div class="image-container">
+                <img src="interactions2.jpg" alt="Image 2">
+            </div>
+            <div class="text-container">
+                <h2>Mutualism</h2>
+                <ul>
+                    <li>Mutualism is a type of interaction where both parties benefit. A classic example is the relationship between bees and flowering plants. 
+					Bees gather nectar and pollen for nutrition, while plants rely on bees for pollination. This mutual dependency can lead to highly specialized traits 
+					in both the pollinators and the plants, such as the coevolution of flower shapes that match the body structures of specific pollinators.</li>
+                <p><strong>Image Source:</strong> <a href="https://planetwild.com/blog/an-introduction-to-mutualism">Planet Wild</a></p>
+            </div>
+        </article>
+	
+	       <article class="article">
+            <div class="image-container">
+                <img src="interactions3.JPG" alt="Image 3">
+            </div>
+            <div class="text-container">
+                <h2>Parasitism and disease </h2>
+                <ul>
+                    <li>Parasitism and disease involve interactions where the parasite benefits at the expense of the host. This interaction can result in 
+					co-evolutionary dynamics where the host evolves defenses, and the parasite evolves counter-defenses. This continual evolutionary struggle 
+					can drive significant diversity in immune system strategies among hosts and various evasion tactics among parasites.</li>
+                <p><strong>Image Source:</strong> <a href="https://www.britannica.com/science/parasitism">Britannica</a></p>
+            </div>
+        </article>
+		
+	       <article class="article">
+            <div class="image-container">
+                <img src="interactions4.png" alt="Image 4">
+            </div>
+            <div class="text-container">
+                <h2>Facilitation</h2>
+                <ul>
+                    <li>Facilitation describes interactions where one species benefits another without direct reciprocation. This can include scenarios where one species 
+					modifies the environment in ways that benefit other species, such as when certain plants increase soil fertility or when beavers create ponds that 
+					provide habitats for other organisms. These interactions can enhance species diversity and community structure.</li>
+                <p><strong>Image Source:</strong> <a href="https://www.nature.com/articles/s41467-018-06779-w">Nature Communications</a></p>
+            </div>
+        </article>
+		
+	       <article class="article">
+            <div class="image-container">
+                <img src="interactions5.jpg" alt="Image 5">
+            </div>
+            <div class="text-container">
+                <h2>Competition</h2>
+                <ul>
+                    <li>Competition occurs when individuals or species vie for the same resources, such as food, space, or mates. This can occur within a species 
+					(intraspecific competition) or between species (interspecific competition). This competition can drive significant evolutionary changes, particularly 
+					in traits that enhance resource acquisition or survival. Over time, competition can lead to niche differentiation where species evolve to exploit 
+					different resources or environments, reducing direct competition and allowing coexistence.</li>
+                <p><strong>Image Source:</strong> <a href="https://ecologywithemily.weebly.com/competition.html">Ecology with Emily</a></p>
+            </div>
+        </article>
+		
+	       <article class="article">
+            <div class="image-container">
+                <img src="interactions6.jpg" alt="Image 6">
+            </div>
+            <div class="text-container">
+                <h2>Symbiosis</h2>
+                <ul>
+                    <li>Symbiosis refers to any long-term biological interaction between two different organisms, which may be mutualistic, commensal (one benefits without harming the other), 
+					or parasitic. Understanding these relationships is key to studying ecosystem functions and evolutionary processes, as symbiotic relationships can significantly influence 
+					the survival and reproductive success of the involved species.</li>
+                <p><strong>Image Source:</strong> <a href="https://education.nationalgeographic.org/resource/symbiosis-art-living-together/6th-grade/">National Geographic</a></p>
+            </div>
+        </article>
+    </div>
+	
+<div class="subtitle-container">
+    <div class="subtitle-line"></div>
+    <div class="subtitle">More about Evolutionary Ecology!</div>
+    <div class="subtitle-line"></div>
+</div>
+ 
+    <div class="images-row">
+    <div class="image-hover-container">
+        <img src="imgslider1.jpg" alt="">
+        <span class="hover-text">Concept of Evolutionary ecology: Evolutionary changes of plant volatiles upon invasion</span>
+    </div>
+    <div class="image-hover-container">
+        <img src="imgslider2.JPG" alt="Image 4">
+        <span class="hover-text">Evolutionary Ecology by Eric R. Piank, an American herpetologist and evolutionary ecologist</span>
+    </div>
+</div>
+    <button id="scrollToTopBtn" onclick="scrollToTop()">Top</button>
+    
+    <script>
+	        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopBtn").style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }    
+</script>
+</body>
+</html>
